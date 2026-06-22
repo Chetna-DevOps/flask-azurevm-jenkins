@@ -11,7 +11,6 @@ This project starts from Microsoft's official sample app ([Azure-Samples/msdocs-
 - Provisioning Azure resources (App Service, PostgreSQL Flexible Server, Azure Cache for Redis) manually via the Azure Portal
 - Building a GitHub Actions workflow to automate deployment on every push to `main`
 - Managing application configuration and secrets via App Service Environment Variables and GitHub Secrets
-- Debugging real production startup failures using Azure's container logs (`az webapp log tail`)
 - Observability using Application Insights
 
 ## Architecture
