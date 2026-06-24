@@ -1,6 +1,6 @@
 # Flask Restaurant Review App — Azure App Service Deployment
 
-A Flask + PostgreSQL + Redis web app deployed to Azure App Service using a custom CI/CD pipeline built with GitHub Actions.
+A Flask + PostgreSQL + Redis web app deployed to Azure Virtual Machine using a custom CI/CD pipeline built with Jenkins.
 
 ## Base application
 
