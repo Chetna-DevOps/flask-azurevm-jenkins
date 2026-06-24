@@ -1,5 +1,4 @@
 pipeline {
-    // Run on our Azure VM agent instead of local Windows machine
     agent { label 'azure-vm' }
 
     stages {
@@ -11,7 +10,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh '''
+                sh '''#!/bin/bash
                     cd /app
                     source venv/bin/activate
                     pip install -r requirements.txt
@@ -21,7 +20,7 @@ pipeline {
 
         stage('Run Migrations') {
             steps {
-                sh '''
+                sh '''#!/bin/bash
                     cd /app
                     source venv/bin/activate
                     flask db upgrade
