@@ -91,6 +91,7 @@ the app lives avoids Windows/Linux compatibility issues and simplifies the pipel
 | `source` command not found in pipeline | Jenkins uses `dash` shell by default, which doesn't support `source` | Added `#!/bin/bash` shebang to shell blocks in Jenkinsfile |
 
 ## Application Screenshots
+
 ### Home Page
 ![Home Page](screenshots/app-page.png)
 ### Jenkins Stages View
