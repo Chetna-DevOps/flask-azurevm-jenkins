@@ -61,7 +61,6 @@ Rather than running pipeline steps on the local Windows machine (Jenkins Control
 the Azure Ubuntu VM is configured as a Jenkins Agent. This means:
 - All pipeline steps execute directly on the VM
 - Clean separation between Controller (orchestration) and Agent (execution)
-- Avoids Windows/Linux shell compatibility issues
 
 ## Key Technical Decisions & Why
 
