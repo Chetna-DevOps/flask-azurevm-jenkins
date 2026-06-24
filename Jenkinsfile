@@ -1,56 +1,41 @@
 pipeline {
-    agent any
+    // Run on our Azure VM agent instead of local Windows machine
+    agent { label 'azure-vm' }
+
     stages {
-        stage('Pull Code on VM') {
+        stage('Pull Code') {
             steps {
-                sshagent(['azure-vm-ssh']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no azureuser@20.244.108.70 "
-                            cd /app &&
-                            git pull origin main
-                        "
-                    '''
-                }
+                sh 'cd /app && git pull origin main'
             }
         }
+
         stage('Install Dependencies') {
             steps {
-                sshagent(['azure-vm-ssh']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no azureuser@20.244.108.70 "
-                            cd /app &&
-                            source venv/bin/activate &&
-                            pip install -r requirements.txt
-                        "
-                    '''
-                }
+                sh '''
+                    cd /app
+                    source venv/bin/activate
+                    pip install -r requirements.txt
+                '''
             }
         }
+
         stage('Run Migrations') {
             steps {
-                sshagent(['azure-vm-ssh']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no azureuser@20.244.108.70 "
-                            cd /app &&
-                            source venv/bin/activate &&
-                            flask db upgrade
-                        "
-                    '''
-                }
+                sh '''
+                    cd /app
+                    source venv/bin/activate
+                    flask db upgrade
+                '''
             }
         }
+
         stage('Restart App') {
             steps {
-                sshagent(['azure-vm-ssh']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no azureuser@20.244.108.70 "
-                            sudo systemctl restart flaskapp
-                        "
-                    '''
-                }
+                sh 'sudo systemctl restart flaskapp'
             }
         }
     }
+
     post {
         success {
             echo 'Flask app deployed successfully!'
