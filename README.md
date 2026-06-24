@@ -92,15 +92,15 @@ the app lives avoids Windows/Linux compatibility issues and simplifies the pipel
 
 ## Application Screenshots
 ### Home Page
-![Home Page](screenshots/home-page.png)
+![Home Page](screenshots/app-page.png)
 ### Jenkins Stages View
 ![Jenkins Stages](screenshots/jenkins-stages-view.png)
 ### Jenkins Nodes (Controller-Agent Setup)
 ![Jenkins Nodes](screenshots/jenkins-nodes.png)
 ### GitHub Webhook — Recent Deliveries
-![Webhook](screenshots/github-webhook.png)
+![Webhook](screenshots/webhook-overview.png)
 ### Azure VM Overview
-![Azure VM](screenshots/azure-vm-overview.png)
+![Azure VM](screenshots/vm-overview-page.png)
 ### Azure NSG — Inbound Port Rules
 ![NSG Rules](screenshots/nsg-inbound-rules.png)
 ### Nginx Configuration
